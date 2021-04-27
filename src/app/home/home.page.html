@@ -1,20 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      List User
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let dPOST of dataPOST">
+      <ion-avatar slot="start">
+        <img [src]="dPOST.avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{dPOST.first_name}} {{dPOST.last_name}}</h2>
+        <p>{{dPOST.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="GoToTab2()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- <ion-item><ion-input type="text" [(ngModel)]="post.userId"></ion-input></ion-item>
+  <ion-item><ion-input type="text" [(ngModel)]="post.title"></ion-input></ion-item>
+  <ion-item><ion-input type="text" [(ngModel)]="post.body"></ion-input></ion-item>
+  <ion-button (click)="submit()">SIMPAN DATA</ion-button> -->
 </ion-content>
